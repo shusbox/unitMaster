@@ -1,33 +1,38 @@
 import { useState } from 'react'
-import reactLogo from '../assets/react.svg'
-import viteLogo from '/vite.svg'
+import styled from "@emotion/styled";
 import '../css/App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const InputContainer = styled.div`
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  `
+
+  const InputResult = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+  `
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <InputContainer>
+        <input
+          type='number'
+          placeholder='m'
+        />
+        <InputResult>
+          <input placeholder='nm' readOnly />
+          <input placeholder='mm' readOnly />
+          <input placeholder='cm' readOnly />
+          <input placeholder='km' readOnly />
+          <input placeholder='광년' readOnly />
+        </InputResult>
+      </InputContainer>
+      <button> 전환하기 </button>
     </>
   )
 }
